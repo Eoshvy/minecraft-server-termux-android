@@ -1,0 +1,69 @@
+#!/data/data/com.termux/files/usr/bin/bash
+
+source api/paper_api.sh
+source downloads/paper.sh
+source core/install.sh
+source menus/ram_menu.sh
+source menus/server_name.sh
+source menus/server_summary.sh
+source menus/version_menu.sh
+source core/variables.sh
+source menus/java_server.sh
+source menus/bedrock_server.sh
+source menus/create_server.sh
+source core/colors.sh
+source core/functions.sh
+source core/banner.sh
+source menus/main_menu.sh
+
+while true
+do
+    clear_screen
+
+    show_banner
+    show_main_menu
+
+    read -p "Select an option: " choice
+
+    case "$choice" in
+
+        1)
+            create_server_menu
+    ;;
+
+        2)
+            echo
+            echo "Manage Servers (Coming Soon)"
+            pause
+            ;;
+
+        3)
+            echo
+            echo "Downloads (Coming Soon)"
+            pause
+            ;;
+
+        4)
+            echo
+            echo "Settings (Coming Soon)"
+            pause
+            ;;
+
+        5)
+            echo
+            echo "Made with ❤️ by EOSHVY"
+            pause
+            ;;
+
+        0)
+            clear
+            exit 0
+            ;;
+
+        *)
+            invalid_option
+            ;;
+
+    esac
+
+done
