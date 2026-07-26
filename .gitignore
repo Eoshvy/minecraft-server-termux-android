@@ -1,0 +1,8 @@
+# Generated server files
+servers/
+
+# Logs
+logs/
+
+# Backups
+backups/

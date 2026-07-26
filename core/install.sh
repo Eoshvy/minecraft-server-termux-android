@@ -23,6 +23,33 @@ echo "✓ Saved server configuration."
 if [ "$SERVER_SOFTWARE" = "paper" ]; then
     download_paper
 fi
+
+generate_eula
+echo "✓ Generated eula.txt"
+
+generate_start_script
+echo "✓ Generated start.sh"
+
 pause
+
+}
+generate_eula() {
+
+    cat > "servers/$SERVER_NAME/eula.txt" << EOF
+eula=true
+EOF
+
+}
+generate_start_script() {
+
+cat > "servers/$SERVER_NAME/start.sh" << EOF
+#!/data/data/com.termux/files/usr/bin/bash
+
+cd "\$(dirname "\$0")"
+
+java -Xms${SERVER_RAM}M -Xmx${SERVER_RAM}M -jar server.jar nogui
+EOF
+
+chmod +x "servers/$SERVER_NAME/start.sh"
 
 }
